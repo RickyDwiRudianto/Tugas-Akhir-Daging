@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Daging Sapi</title>
+    
+    <!-- Emoji -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Panggil CSS -->
+    <link rel="stylesheet" href="TugasAkhir.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>Monitoring Daging Sapi</h1>
+            <p class="update-time">
+                <i class="far fa-clock"></i>
+                <span id="updateTime">--:--:--</span>
+            </p>
+        </div>
+
+        <!-- Status -->
+        <div class="card status-card">
+            <div class="status-label">Status Daging</div>
+            <div class="status-value" id="statusText">---</div>
+            <div class="status-desc" id="statusDesc"></div>
+        </div>
+
+        <!-- Sensor Grid -->
+        <div class="sensor-grid">
+            
+            <!-- Suhu -->
+            <div class="card">
+                <div class="sensor-header">
+                    <span>Suhu</span>
+                    <i class="fas fa-temperature-high"></i>
+                </div>
+                <div class="sensor-value">
+                    <span id="suhu">--</span> °C
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="suhuBar" style="width: 0%"></div>
+                </div>
+                <div class="sensor-range">Optimal < 30°C</div>
+            </div>
+
+            <!-- Kelembaban -->
+            <div class="card">
+                <div class="sensor-header">
+                    <span>Kelembaban</span>
+                    <i class="fas fa-tint"></i>
+                </div>
+                <div class="sensor-value">
+                    <span id="hum">--</span> %
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill hum-fill" id="humBar" style="width: 0%"></div>
+                </div>
+                <div class="sensor-range">Optimal 60-80%</div>
+            </div>
+
+            <!-- Gas -->
+            <div class="card">
+                <div class="sensor-header">
+                    <span>Gas</span>
+                    <i class="fas fa-wind"></i>
+                </div>
+                <div class="sensor-value">
+                    <span id="gas">--</span> %
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill gas-fill" id="gasBar" style="width: 0%"></div>
+                </div>
+                <div class="sensor-range">0% bersih, 100% busuk</div>
+            </div>
+        </div>
+
+        <!-- RGB Values -->
+        <div class="card">
+            <h3 class="card-title">Nilai RGB</h3>
+            <div class="rgb-container">
+                <div class="rgb-item">
+                    <div class="rgb-circle" id="redCircle" style="background: #660000;"></div>
+                    <div class="rgb-label">Merah</div>
+                    <div class="rgb-value" id="redValue">0</div>
+                </div>
+                <div class="rgb-item">
+                    <div class="rgb-circle" id="greenCircle" style="background: #006600;"></div>
+                    <div class="rgb-label">Hijau</div>
+                    <div class="rgb-value" id="greenValue">0</div>
+                </div>
+                <div class="rgb-item">
+                    <div class="rgb-circle" id="blueCircle" style="background: #000066;"></div>
+                    <div class="rgb-label">Biru</div>
+                    <div class="rgb-value" id="blueValue">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relay -->
+        <div class="card info-card">
+            <div class="info-header">
+                <i class="fas fa-snowflake"></i>
+                <span>Pendingin</span>
+            </div>
+            <div class="relay-status" id="relayStatus">
+                <span class="relay-off">OFF</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <button onclick="refreshData()" class="btn-refresh">
+                <i class="fas fa-sync-alt"></i> Refresh
+            </button>
+            <p class="copyright">Tugas Akhir - 2026</p>
+        </div>
+
+    </div>
+
+    <!-- Panggil JS -->
+    <script src="TugasAkhir.js"></script>
+</body>
+</html>
